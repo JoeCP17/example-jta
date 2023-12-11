@@ -1,0 +1,43 @@
+version: '3.9'
+services:
+  testdb1:
+    image: mysql
+    platform: linux/x86_64
+    build:
+      context: ./db
+      dockerfile: mysql-dockerfile
+    volumes:
+      - ./db/data:/var/lib/db/data
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      TZ: 'Asia/Seoul'
+    ports:
+      - "3307:3306"
+
+  testdb2:
+    image: mysql
+    platform: linux/x86_64
+    build:
+      context: ./db
+      dockerfile: mysql-dockerfile
+    volumes:
+      - ./db/data:/var/lib/db/data
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      TZ: 'Asia/Seoul'
+    ports:
+      - "3308:3306"
+
+  testdb3:
+    image: mysql
+    platform: linux/x86_64
+    build:
+      context: ./db
+      dockerfile: mysql-dockerfile
+    volumes:
+      - ./db/data:/var/lib/db/data
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      TZ: 'Asia/Seoul'
+    ports:
+      - "3309:3306"
