@@ -2,12 +2,14 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     id("org.springframework.boot") version "3.1.2"
+    id("java")
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
+
     kotlin("jvm") version "1.6.10"
     kotlin("plugin.spring") version "1.6.10" apply false
     kotlin("plugin.jpa") version "1.6.10" apply false
     kotlin("plugin.allopen") version "1.6.21"
-
+    kotlin("kapt") version "1.6.0"
 }
 
 java.sourceCompatibility = JavaVersion.VERSION_17
@@ -26,6 +28,12 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
 
+    apply(plugin = "org.jetbrains.kotlin.plugin.spring")
+
+    // 커스텀한 Configuration Properties를 사용하기 위한 의존성
+    kapt("org.springframework.boot:spring-boot-configuration-processor")
+
+
     // JPA connect
     api("org.springframework.boot:spring-boot-starter-data-jpa")
 
@@ -39,9 +47,9 @@ dependencies {
 }
 
 allOpen {
-    annotation("javax.persistence.Entity")
-    annotation("javax.persistence.Embeddable")
-    annotation("javax.persistence.MappedSuperclass")
+    annotation("jakarta.persistence.Entity")
+    annotation("jakarta.persistence.Embeddable")
+    annotation("jakarta.persistence.MappedSuperclass")
 }
 
 tasks.test {

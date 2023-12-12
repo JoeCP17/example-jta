@@ -1,6 +1,5 @@
-package com.jta.repository
+package com.jta.user.entity
 
-import com.jta.entity.User
 import org.springframework.data.jpa.repository.JpaRepository
 
 interface UserJpaRepository: JpaRepository<User, Long> {
