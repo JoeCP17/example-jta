@@ -26,13 +26,17 @@ allprojects {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+
+    // JTA Atomikos
+    implementation("com.atomikos:transactions-spring-boot3-starter:6.0.0")
+    implementation("javax.transaction:jta:1.1")
+
     developmentOnly("org.springframework.boot:spring-boot-devtools")
 
     apply(plugin = "org.jetbrains.kotlin.plugin.spring")
 
     // 커스텀한 Configuration Properties를 사용하기 위한 의존성
     kapt("org.springframework.boot:spring-boot-configuration-processor")
-
 
     // JPA connect
     api("org.springframework.boot:spring-boot-starter-data-jpa")
