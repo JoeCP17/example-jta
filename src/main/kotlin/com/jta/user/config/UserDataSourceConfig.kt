@@ -1,5 +1,6 @@
 package com.jta.user.config
 
+import com.atomikos.jdbc.AtomikosDataSourceBean
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.boot.jdbc.DataSourceBuilder
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder
